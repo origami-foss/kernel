@@ -1,0 +1,23 @@
+# qemu serial output
+serial.log
+
+# python
+__pycache__/
+
+# build output
+/build/
+
+# IDE related files
+# qt creator
+/.qtc_clangd
+/*.cflags
+/*.creator
+/*.config
+/*.cxxflags
+/*.creator.user
+/*.files
+/*.includes
+
+# kdevelop
+/.kdev4
+/*.kdev4
