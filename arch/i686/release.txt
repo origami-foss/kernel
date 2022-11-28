@@ -1,0 +1,31 @@
+[binaries]
+c = 'clang'
+c_ld = 'lld'
+cpp = 'clang'
+cpp_ld = 'lld'
+strip = 'strip'
+
+[host_machine]
+system = 'none'
+cpu_family = 'x86'
+cpu = 'i686'
+endian = 'little'
+
+[built-in options]
+cpp_args = [
+	'-D', 'ARCH_I686',
+	'-Wextra',
+	'-ffreestanding',
+	'-fno-exceptions',
+	'-mno-red-zone',
+	'-fno-rtti',
+	'-target', 'i686-none-elf',
+	'-O2' ]
+cpp_link_args = [
+	'-ffreestanding',
+	'-nostdlib',
+	'-target', 'i686-none-elf',
+	'-O2' ]
+
+[properties]
+asm_flags = [ '-f elf32' ]
