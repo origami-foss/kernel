@@ -1,0 +1,26 @@
+name: Kernel CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-i686:
+    name: Build
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/origami-foss/buildenv:master
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: 'Prepare build environment (i686-debug)'
+      run: meson setup build/i686-debug --cross-file arch/i686/debug.txt
+    - name: 'Compile (i686-debug)'
+      run: meson compile -C build/i686-debug
