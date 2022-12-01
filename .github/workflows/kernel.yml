@@ -18,8 +18,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        submodules: true
+    - name: Checkout submodules
+      run: |
+        git submodule update --init --recursive
+
     - name: 'Prepare build environment (i686-debug)'
       run: meson setup build/i686-debug --cross-file arch/i686/debug.txt
     - name: 'Compile (i686-debug)'
