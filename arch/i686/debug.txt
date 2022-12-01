@@ -19,6 +19,7 @@ cpp_args = [
 	'-fno-exceptions',
 	'-mno-red-zone',
 	'-fno-rtti',
+	'-fPIC',
 	'-target', 'i686-none-elf',
 	'-O0',
 	'-g' ]
